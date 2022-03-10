@@ -14,31 +14,26 @@ const yellow = document.querySelector('.yellow');
 const blue = document.querySelector('.blue');
 
 let sortOrder = () => {
-    let handleColorOrder = Math.floor(Math.random() * 4);
-
-
-    order[order.length] = handleColorOrder;
+    let hadnleColorOrder = Math.floor(Math.random() * 4);
+    order[order.length] = hadnleColorOrder;
     clickedOrder = [];
 
-    for (let i in order) {
-        let elementColor = createColorElement(colorElement[i])
-        lightColor(elementColor, Number(i + 1));
+    for(let i in order) {
+        let elementColor = createColorElement(order[i]);
+        lightColor(elementColor, Number(i) + 1);
     }
 }
 
 let lightColor = (element, number) => {
     number = number * 500;
     setTimeout(() => {
-        element.classList.add('selected')
-    }, tempo - 250)
+        element.classList.add('selected');
+    }, number - 250);
+    setTimeout(() => {
+        element.classList.remove('selected');
+    });
 }
 
-let offColor = (element, number) => {
-    number = number * 500;
-    setTimeout(() => {
-        element.classList.remove('selected')
-    }, tempo)
-}
 
 
 let checkOrder = () => {
@@ -60,9 +55,9 @@ let handleClick = (color) => {
     createColorElement(color).classList.add('selected');
 
     setTimeout(() => {
-        createColorElement(color).remove('selected')
+        createColorElement(color).classList.remove('selected')
         checkOrder()
-    })
+    }, 250)
 
 
 }
@@ -77,7 +72,7 @@ let createColorElement = (color) => {
     else if (color == 2) {
         return yellow
     }
-    else {
+    else if (color == 3) {
         return blue
     }
 }
@@ -103,9 +98,9 @@ let playGame = () => {
     nextLevel();
 }
 
-green.addEventListener('click', click(0));
-red.addEventListener('click', click(1));
-yellow.addEventListener('click', click(2));
-blue.addEventListener('click', click(3));
+green.onclick = () => handleClick(0);
+red.onclick = () => handleClick(1);
+yellow.onclick = () => handleClick(2);
+blue.onclick = () => handleClick(3);
 
 playGame();
