@@ -5,12 +5,14 @@
 
 
 
-//Interfaces
+// INTERFACE
 // interface Animal{
 //     nome: string;
 //     tipo: 'terrestre' | 'aquatico';
 //     executarRugido(volumeSom: number): void
 // }
+
+
 
 // interface Felinos extends Animal{
 //     visaoNoturna:boolean;
@@ -64,7 +66,6 @@
 
 //INPUT HTML
 // let input = document.getElementById('input') as HTMLInputElement;
-
 // input.addEventListener('input',(event)=>{
 //     const i = event.currentTarget as HTMLInputElement;
 //     console.log(i.value)
@@ -100,5 +101,3 @@
 // }
 
 // redirect(user)
-
-
