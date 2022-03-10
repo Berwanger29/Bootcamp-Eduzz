@@ -30,3 +30,34 @@
 //     visaoNoturna: true,
 //     executarRugido: (volumeSom) => (console.log(volumeSom)+'db')
 // }
+
+
+
+
+
+//TYPE
+// usando para definir o tipo de uma estrutura de dados, no exemplo abaixo
+// o tipo Domestico pode receber as interfaces de Canino ou Felino
+type Animal = {
+    nome:string;
+    tipo:'terrestre' | 'aquatico';
+    domestico: boolean;
+}
+
+interface Felino extends Animal{
+    visaoNoturna:boolean;
+}
+
+interface Canino extends Animal{
+    porte:'pequeno' |'medio'| 'grande'
+}
+
+type Domestico = Felino | Canino
+
+const animal: Domestico = {
+    domestico: true,
+    nome:'Cachorro',
+    porte:"medio",
+    tipo:"terrestre",
+    visaoNoturna:false
+}
