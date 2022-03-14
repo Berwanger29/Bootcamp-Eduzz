@@ -1,31 +1,12 @@
-import style from './style.css'
+import Form from "./components/Form";
 
-import Greetings from './components/Greetings'
-import Equipe from './components/Equipe'
-
-
-
-function App() {
-  return (
-    <div>
-      <h1>Conheça nossa equipe</h1>
-      <Equipe
-        nome="Vinicius"
-        cargo="programador"
-        idade={22}
-      />
-      <Equipe
-        nome="Bruno"
-        cargo="designer"
-        idade={21}
-      />
-      <Equipe
-        nome="Amanda"
-        cargo="scrum master"
-        idade={25}
-      />
+const App = () =>{
+  return(
+    <div className='todo-container'>
+      <h1>Vini's list</h1>
+      <Form />
     </div>
   )
 }
 
-export default App
+export default App;
