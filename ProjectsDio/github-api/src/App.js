@@ -1,4 +1,5 @@
-import Context from './utils/Context'
+import { useContext, useState } from 'react'
+import { Context } from './utils/Context'
 
 
 import { Header } from './components/Header/'
@@ -7,8 +8,11 @@ import { Input } from './components/Input'
 
 
 const App = () => {
+
+  const [url, setUrl] = useState('https://api.github.com/users/')
+
   return (
-    <Context.Provider>
+    <Context.Provider value={{url, setUrl}}>
       <Input />
       <Header />
       <Projects />

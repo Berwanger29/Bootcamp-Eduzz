@@ -1,5 +1,2 @@
 import { createContext } from 'react';
-
-const Context = createContext('https://api.github.com/users/')
-
-export default Context
+export const Context = createContext()
