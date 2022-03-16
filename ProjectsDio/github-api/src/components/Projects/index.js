@@ -1,8 +1,13 @@
 import { useContext, useState } from 'react';
-import { Context } from '../../utils/Context';
+
 import { Btn } from '../Btn';
+import { Context } from '../../utils/Context';
+import { Project } from '../Project'
+
+
 import {
-    ContainerProjects
+    ContainerProjects,
+    ListProjects
 } from './styled'
 
 
@@ -10,33 +15,44 @@ import {
 export const Projects = () => {
     let { dataUser } = useContext(Context);
 
-    const [isRepoPressed, setIsRepoPressed] = useState(1);
+    const [isRepoPressed, setIsRepoPressed] = useState(0);
     const [isStarredPressed, setIsStarredPressed] = useState(0);
+
+    const [projectRepo, setProjectRepo] = useState(null);
+    const [projectStar, setProjectStar] = useState(null);
+
+    const [search, setSearch] = useState(0);
 
     function getRepos(e) {
         e.preventDefault();
+
         setIsRepoPressed(1)
         setIsStarredPressed(0)
 
-        console.log('repo')
+        setProjectRepo(dataUser.repos_url)
     }
 
     function getStarred(e) {
         e.preventDefault();
+
         setIsStarredPressed(1)
         setIsRepoPressed(0)
 
-        console.log('starred')
+
     }
 
-    if (dataUser == null) {
+    if (!dataUser) {
         return <></>
     }
     else
         return (
             <ContainerProjects>
-                <Btn text={'Repositories'} onClickFunc={getRepos}  pressed={isRepoPressed} />
-                <Btn text={'Starred'} onClickFunc={getStarred} pressed={isStarredPressed}/>
+                <Btn text={'Repositories'} onClickFunc={getRepos} pressed={isRepoPressed} />
+                <Btn text={'Starred'} onClickFunc={getStarred} pressed={isStarredPressed} />
+
+                {/* <ListProjects>
+                    {projectRepo.map(item=> <Project id={item.id} nome={item.name}/>)}
+                </ListProjects> */}
             </ContainerProjects>
         )
 }

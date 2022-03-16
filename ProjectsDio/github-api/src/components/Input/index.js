@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { Context } from '../../utils/Context';
 import axios from 'axios';
 
@@ -14,7 +14,8 @@ import {
 export const Input = () => {
 
     const [user, setUser] = useState('')
-    const { dataUser, setDataUser } = useContext(Context)
+
+    const { setDataUser, setUserRepos } = useContext(Context);
 
     function getUser(e) {
         const handleInput = e.target.value;
@@ -25,10 +26,14 @@ export const Input = () => {
         axios.get(`https://api.github.com/users/${user}`)
             .then(res => {
                 setDataUser(res.data)
-                setUser('')
-                console.log(dataUser)
+
+                axios.get(`https://api.github.com/users/${user}/repos`)
+                    .then(res => {
+                        setUserRepos(res.data)
+                    })
+                    .catch(err => alert(err))
             })
-            .catch(e => alert(dataUser))
+            .catch(e => alert(e))
     }
 
     return (

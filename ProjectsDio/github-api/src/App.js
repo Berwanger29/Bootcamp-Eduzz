@@ -10,12 +10,21 @@ import { Input } from './components/Input'
 const App = () => {
 
   const [dataUser, setDataUser] = useState(null)
+  const [userRepos, setUserRepos] = useState([])
+  const [userStar, setUSerStar] = useState([])
 
   return (
-    <Context.Provider value={{dataUser, setDataUser}}>
+    <Context.Provider value={{
+      dataUser,
+      setDataUser,
+      userRepos,
+      setUserRepos,
+      userStar,
+      setUSerStar
+    }}>
       <Input />
       <Header />
-      <Projects />
+      {/* <Projects /> */}
     </Context.Provider>
   )
 }

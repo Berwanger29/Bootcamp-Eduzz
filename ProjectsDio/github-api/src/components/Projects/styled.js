@@ -6,3 +6,7 @@ export const ContainerProjects = styled.div`
     display: flex;
     justify-content: space-between;
 `;
+
+export const ListProjects = styled.ul`
+    background-color: red;
+`;
