@@ -16,4 +16,5 @@ export const InputGitUser = styled.input`
 export const ButtonSearch = styled.button`
     padding: 12px;
     border-radius: 5px;
+    cursor: pointer;
 `;
