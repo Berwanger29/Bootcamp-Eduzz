@@ -2,11 +2,16 @@ import styled from "styled-components";
 
 export const ContainerProjects = styled.div`
     margin-top: 1.5rem;
-    width: 150px;
+    width: 200px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+`;
+
+export const WrapperBtn = styled.div`
+    display: flex;
+    flex-direction:row;
 `;
 
 export const ListProjects = styled.ul`
-    background-color: red;
+    list-style: none;
 `;

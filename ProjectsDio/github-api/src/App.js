@@ -24,7 +24,7 @@ const App = () => {
     }}>
       <Input />
       <Header />
-      {/* <Projects /> */}
+      <Projects />
     </Context.Provider>
   )
 }
